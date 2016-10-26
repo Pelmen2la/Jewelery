@@ -1,0 +1,32 @@
+{
+  "name": "GrininJewelery",
+  "description": "",
+  "main": "app.js",
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.5",
+    "angular-file-upload": "^2.3.2",
+    "angular-resource": "^1.5.3",
+    "angular-ui-router": "^0.2.18",
+    "angular-carousel": "^1.0.1",
+    "angular-sanitize": "^1.5.8",
+    "textAngular": "^1.5.10",
+    "components-font-awesome": "^4.6.3"
+  },
+  "resolutions": {
+    "angular": "^1.5.5"
+  }
+}

@@ -1,0 +1,17 @@
+<button ui-sref='newProduct'>
+    Добавить изделие
+</button>
+
+<table class="list">
+    <tr ng-repeat="product in products">
+        <td ng-click="openProductForm(product._id)">
+            {{product.name}}
+        </td>
+        <td>
+            <img src="/resources/images/admin/icons/edit.png" ng-click="openProductForm(product._id)">
+        </td>
+        <td>
+            <img src="/resources/images/admin/icons/delete.png" ng-click="tryDeleteProduct(product._id)">
+        </td>
+    </tr>
+</table>

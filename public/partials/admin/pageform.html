@@ -1,0 +1,56 @@
+<div ng-controller="PageFormController" class="edit-page">
+    <a ui-sref='index'> < Вернуться к списку страниц</a>
+
+    <div class="settings-block">
+        <span class="control-label">Ссылка</span>
+        <input class="control" ng-model="page.url">
+    </div>
+
+    <div class="settings-block">
+        <span class="control-label">Заголовок страницы (SEO)</span>
+        <input class="control" ng-model="page.title">
+    </div>
+
+    <div class="settings-block">
+        <span class="control-label">Meta description(SEO)</span>
+        <input class="control" ng-model="page.description">
+    </div>
+
+    <div class="settings-block">
+        <span class="control-label">Meta keywords(SEO)</span>
+        <input class="control" ng-model="page.keywords">
+    </div>
+
+    <div class="settings-block">
+        <span class="control-label">Название страницы в меню</span>
+        <input class="control" ng-model="page.menuName">
+    </div>
+
+    <div class="settings-block">
+        <span class="control-label">В каком меню будет ссылка</span>
+        <select class="control" ng-model="page.menuType"
+                ng-options="key as value for (key, value) in  menuTypes">
+        </select>
+    </div>
+
+    <div class="settings-block">
+        <span class="control-label">Заголовок текста страницы</span>
+        <input class="control" ng-model="page.name">
+    </div>
+
+    <div class="settings-block">
+        <span class="control-label">Текст страницы</span>
+        <text-angular class="control" ng-model="page.content"></text-angular>
+    </div>
+
+    <div class="settings-block">
+        <span class="control-label">Какие изделия будут отображаться на странице</span>
+        <select class="control" ng-model="page.productTypeToShowId"
+                ng-options="type._id as type.name for type in productTypes">
+        </select>
+    </div>
+
+    <button ng-click="submitPage()">
+        Сохранить
+    </button>
+</div>

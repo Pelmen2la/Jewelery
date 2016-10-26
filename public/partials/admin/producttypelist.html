@@ -1,0 +1,14 @@
+<table class="list">
+    <tr ng-repeat="producttype in producttypes">
+        <td ng-click="openProductForm(producttype._id)">
+            {{producttype.name}}
+        </td>
+        <td>
+            <img src="/resources/images/admin/icons/delete.png" ng-click="tryDeleteProductType(producttype._id)">
+        </td>
+    </tr>
+</table>
+<input ng-model="newProductTypeData.name" placeholder="Введите название типа">
+<button ng-click="onAddProductTypeClick()">
+    Добавить тип продукта
+</button>

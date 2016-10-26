@@ -1,0 +1,39 @@
+doctype html
+html(ng-app='jeweleryAdminApp')
+    head
+        meta(charset='utf-8')
+        title Панель администратора
+        link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', href='css/admin.css')
+        link(rel='stylesheet', href='/bower_components/textAngular/dist/textAngular.css')
+        link(rel='stylesheet', href='/bower_components/components-font-awesome/css/font-awesome.min.css')
+    body
+        div.admin-main-container
+            div#auth
+                span #{user}
+                a(href='/logout') Выйти
+            button(class='top-menu-button' ui-sref='index') Настройка страниц
+            button(class='top-menu-button' ui-sref='products') Настройка изделий
+            button(class='top-menu-button' ui-sref='producttypes') Настройка типов изделий
+
+            div(ui-view, ng-controller='MainController')
+
+
+        script(src='/bower_components/jquery/dist/jquery.js')
+        script(src='/bower_components/angular/angular.js')
+        script(src='/bower_components/angular-resource/angular-resource.js')
+        script(src='/bower_components/angular-ui-router/release/angular-ui-router.js')
+        script(src='/bower_components/angular-file-upload/dist/angular-file-upload.js')
+        script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
+        script(src='/bower_components/textAngular/dist/textAngular-rangy.min.js')
+        script(src='/bower_components/textAngular/dist/textAngular-sanitize.min.js')
+        script(src='/bower_components/textAngular/dist/textAngular.min.js')
+        script(src='/js/admin/app.js')
+        script(src='/js/admin/controllers/main.js')
+        script(src='/js/admin/controllers/pagelist.js')
+        script(src='/js/admin/controllers/pageform.js')
+        script(src='/js/admin/controllers/productlist.js')
+        script(src='/js/admin/controllers/productform.js')
+        script(src='/js/admin/controllers/producttypelist.js')
+        script(src='/js/admin/services/models.js')
+        script(src='/js/admin/services/utils.js')

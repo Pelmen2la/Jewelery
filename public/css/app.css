@@ -1,0 +1,188 @@
+/* Reset CSS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	color: white;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+	display: block;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+button:focus,
+input:focus,
+select:focus,
+textarea:focus{
+    outline: 0;
+}
+/* /Reset CSS */
+
+body {
+    font-size: 14px;
+	line-height: 1.5em;
+	background: #001528;
+	color: white;
+	overflow-y: scroll;
+}
+/**/
+div {
+	overflow: hidden;
+}
+
+h1 {
+	font-size: 2em;
+	margin: 0 0 0.5em;
+}
+
+h2 {
+	font-size: 1.7em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+a,
+a:hover,
+a:focus {
+	font-style: italic;
+	color: #fdeed0;
+}
+
+.page {
+	margin: 1em auto;
+	width: 90%;
+}
+
+/* Header */
+.header {
+	overflow: hidden;
+	font-family: Georgia;
+	font-size: 1.5em;
+}
+
+.header .info-container {
+	padding-bottom: 1px;
+	margin: 0 25%;
+}
+
+.header .logo {
+	float: left;
+	height: 2em;
+	margin-right: 1%;
+}
+
+.header .logo-text {
+	line-height: 1em;
+	float: left;
+}
+
+.header .contacts {
+	float: right;
+}
+
+.top-menu {
+	clear: both;
+	text-align: center;
+	margin: 0.8em;
+}
+
+.header .top-menu li {
+	display: inline-block;
+	margin: 0.2em 1%;
+}
+/* /Header */
+
+/* Main wrapper */
+.main-wrapper {
+	max-width: 1440px;
+	margin: 0 auto;
+}
+
+.main-wrapper .left-menu {
+    width: 30%;
+	line-height: 2em;
+    float: left;
+}
+
+.main-wrapper .left-menu a {
+	font-size: 1.3em;
+}
+
+.main-wrapper .content {
+    float: right;
+    width: 70%;
+}
+
+.main-wrapper .products-list {
+	text-align: center;
+}
+
+.main-wrapper .products-list li {
+	display: inline-block;
+	margin: 1em 1%;
+}
+
+.main-wrapper .products-list li img {
+	height: 14.285714em; /* 200 / 14 */
+	border: 4px solid #fdeed0;
+}
+/* /Main wrapper */
+
+/* Big image */
+.big-image-container {
+	display: none;
+}
+
+.big-image-container.visible {
+	display: block;
+}
+
+.big-image-container .mask {
+	background: gray;
+	opacity: 0.5;
+}
+
+.big-image-container .mask,
+.big-image-container img {
+	position: fixed;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	text-align: center;
+}
+
+.big-image-container img {
+	max-width: 90%;
+}
+/* /Big image */

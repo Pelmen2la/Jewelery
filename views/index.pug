@@ -1,0 +1,70 @@
+doctype html
+html(ng-app='jeweleryApp')
+    head
+      title
+        block title
+          = pageData.title || 'Ювелирные изделия от мастера на заказ.'
+      block description
+        meta(name='description', content= pageData.description || 'Сайт мастера ювелирных изделий.')
+      block keywords
+        meta(name='keywords', content= pageData.keywords || 'ювелирные изделия, золото, серебро, кольца, серьги, амулеты,')
+
+      meta(charset='utf-8')
+      title Jewelery
+      link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+      link(rel='stylesheet', href='/bower_components/textAngular/dist/textAngular.css')
+      link(rel='stylesheet', href='/bower_components/components-font-awesome/css/font-awesome.min.css')
+      link(rel='stylesheet', href='/css/app.css')
+    body
+        div.page
+            div.header
+              div.info-container
+                img(src="/resources/images/logo.png").logo
+                p.logo-text
+                  | Эксклюзивный ювелир
+                  br
+                  | Дмитрий Гринин
+                p.contacts
+                  | example@mail.ru
+                  br
+                  | + 7 960 595 30 51
+
+              ul.top-menu
+                for data in menusData.topMenuData
+                  li
+                    a(href= data.url)= data.name
+
+            div.main-wrapper
+                div.left-menu
+                  h3 Работы автора
+                  ul
+                    for data in menusData.authorWorksMenuData
+                      li
+                        a(href= data.url)= data.name
+                  h3 Полезные дополнения
+                  for data in menusData.usefullAdditionsMenuData
+                    a(href= data.url)= data.name
+                div.content
+                  block content
+                    h1= pageData.name || ''
+                    != pageData.content || ''
+                  ul.products-list
+                    for product in productsData
+                      li
+                        img(src=product.smallImageUrl data-bigImageUrl=product.bigImageUrl onclick="jeweleryModule.onSmallImageClick(this)")
+            div.footer
+
+    div.big-image-container#BigImageContainer
+      div.mask(onclick="jeweleryModule.onBigImageMaskClick(this)")
+      img(src="/resources/images/products/small/ring1.jpg")
+
+
+
+
+    script(src='/bower_components/jquery/dist/jquery.js')
+    script(src='/bower_components/angular/angular.js')
+    script(src='/bower_components/angular-resource/angular-resource.js')
+    script(src='/bower_components/angular-ui-router/release/angular-ui-router.js')
+    script(src='/bower_components/angular-file-upload/dist/angular-file-upload.js')
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='/js/app/app.js')

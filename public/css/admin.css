@@ -1,0 +1,115 @@
+/* Reset CSS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+button:focus,
+input:focus,
+select:focus,
+textarea:focus{
+    outline: 0;
+}
+/* /Reset CSS */
+
+body {
+    font-size: 14px;
+	line-height: 1.5em;
+}
+
+.admin-main-container > button {
+	margin: 1em;
+}
+
+/* List */
+.list td {
+	padding: 0.4em;
+}
+
+.list td img {
+	cursor: pointer;
+}
+/* /List */
+
+/* Edit page base */
+.edit-page > button {
+	margin: 1em 0;
+}
+
+.settings-block {
+	width: 100%;
+	overflow: auto;
+	padding: 1em;
+	border-bottom: 1px solid gray;
+}
+
+.settings-block .control-label {
+	width: 25%;
+	display: inline-block;
+	float: left;
+	text-align: left;
+	text-overflow: ellipsis;
+	font-weight: bold;
+	font-size: 14px;
+	min-width: 210px;
+}
+
+.settings-block .control {
+	float: right;
+	width: 75%;
+}
+
+.settings-block .left-half-size-container {
+	float: left;
+	width: 50%;
+}
+
+.settings-block .right-half-size-container {
+	float: right;
+	width: 50%;
+}
+
+.upload-image-block > * {
+	display: block;
+	margin: 0 auto;
+}
+
+.upload-image-block > img {
+	height: 256px;
+}
+/* /Edit page base */

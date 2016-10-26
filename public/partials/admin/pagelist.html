@@ -1,0 +1,17 @@
+<button ui-sref='newPage'>
+    Добавить страницу
+</button>
+
+<table class="list">
+    <tr ng-repeat="page in pages">
+        <td ng-click="openPageForm(page._id)">
+            {{page.name || page.menuName}}
+        </td>
+        <td>
+            <img src="/resources/images/admin/icons/edit.png" ng-click="openPageForm(page._id)">
+        </td>
+        <td>
+            <img src="/resources/images/admin/icons/delete.png" ng-click="tryDeletePage(page._id)">
+        </td>
+    </tr>
+</table>

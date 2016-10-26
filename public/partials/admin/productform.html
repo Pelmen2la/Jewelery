@@ -1,0 +1,31 @@
+<div ng-controller="ProductFormController" class="edit-page">
+    <a ui-sref='products'> < Вернуться к списку страниц</a>
+
+    <div class="settings-block">
+        <div class="left-half-size-container upload-image-block">
+            <img class="main-image" ng-src="{{product.smallImageUrl}}">
+            <input class="upload-input" type="file" nv-file-select="" uploader="smallImageUploader"/>
+        </div>
+        <div class="right-half-size-container upload-image-block">
+            <img class="main-image" ng-src="{{product.bigImageUrl}}">
+            <input class="upload-input" type="file" nv-file-select="" uploader="bigImageUploader"/>
+        </div>
+    </div>
+
+    <div class="settings-block">
+        <span class="control-label">Имя изделия</span>
+        <input class="control" ng-model="product.name">
+    </div>
+
+    <div class="settings-block">
+        <span class="control-label">Тип изделия</span>
+        <select class="control" ng-model="product.typeId"
+                ng-options="type._id as type.name for type in productTypes">
+        </select>
+    </div>
+
+
+    <button ng-click="submitProduct()">
+        Сохранить
+    </button>
+</div>
