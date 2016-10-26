@@ -51,12 +51,8 @@ html(ng-app='jeweleryApp')
                   ul.products-list
                     for product in productsData
                       li
-                        img(src=product.smallImageUrl data-bigImageUrl=product.bigImageUrl onclick="jeweleryModule.onSmallImageClick(this)")
+                        img.clickable-small-image(src=product.smallImageUrl data-bigImageUrl=product.bigImageUrl onclick="jeweleryModule.onSmallImageClick(this)")
             div.footer
-
-    div.big-image-container#BigImageContainer
-      div.mask(onclick="jeweleryModule.onBigImageMaskClick(this)")
-      img(src="/resources/images/products/small/ring1.jpg")
 
 
 
@@ -67,4 +63,5 @@ html(ng-app='jeweleryApp')
     script(src='/bower_components/angular-ui-router/release/angular-ui-router.js')
     script(src='/bower_components/angular-file-upload/dist/angular-file-upload.js')
     script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='/bower_components/watermark/dist/jquery.watermark.js')
     script(src='/js/app/app.js')

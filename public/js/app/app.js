@@ -2,20 +2,28 @@ angular.module('jeweleryApp', []);
 
 (function() {
     window.jeweleryModule = new function() {
+        addWatermarkToImages('.clickable-small-image');
+
         this.onSmallImageClick = function(target) {
-            var bigImageUrl = target.dataset.bigimageurl,
-                img = getBigImageContainer().getElementsByTagName('IMG')[0];
+            var bigImageUrl = target.dataset.bigimageurl;
             if(bigImageUrl) {
-                getBigImageContainer().className += ' visible';
-                img.setAttribute('src', bigImageUrl);
+                document.body.innerHTML += '<div class="big-image-container visible" id="BigImageContainer">' +
+                    '<div class="mask" onclick="jeweleryModule.onBigImageMaskClick()"></div>' +
+                    '<img class="big-image" src="' + bigImageUrl + '"></div>';
+                addWatermarkToImages('.big-image');
             }
         };
 
 
-        this.onBigImageMaskClick = function(target) {
-            getBigImageContainer().className = getBigImageContainer().className.split(' ')[0];
+        this.onBigImageMaskClick = function() {
+            getBigImageContainer().parentNode.removeChild(getBigImageContainer());
         };
 
+        function addWatermarkToImages(selector) {
+            $(selector).watermark({
+                text: 'Гринин'
+            });
+        };
         function getBigImageContainer() {
             return document.getElementById('BigImageContainer');
         };

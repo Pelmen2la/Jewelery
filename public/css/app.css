@@ -158,14 +158,6 @@ a:focus {
 /* /Main wrapper */
 
 /* Big image */
-.big-image-container {
-	display: none;
-}
-
-.big-image-container.visible {
-	display: block;
-}
-
 .big-image-container .mask {
 	background: gray;
 	opacity: 0.5;
