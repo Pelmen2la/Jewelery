@@ -43,6 +43,10 @@ select:focus,
 textarea:focus{
     outline: 0;
 }
+
+ul {
+	list-style: none;
+}
 /* /Reset CSS */
 
 body {
