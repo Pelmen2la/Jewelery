@@ -4,7 +4,7 @@ angular.module('jeweleryApp', []);
     window.jeweleryModule = new function() {
         addWatermarkToImages('.clickable-small-image');
         jQuery(document).ready(function($) {
-            $('#ImageSlider').sliderPro({
+            $('#ImageSlider').length && $('#ImageSlider').sliderPro({
                 buttons: false,
                 arrows: true
             });
