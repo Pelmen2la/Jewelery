@@ -11,7 +11,8 @@ var Page = new mongoose.Schema({
     menuType: String,
     name: String,
     content: String,
-    productTypeToShowId: String
+    productTypeToShowId: String,
+    isMainPage: Boolean
 });
 
 mongoose.model('page', Page);

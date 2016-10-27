@@ -1,6 +1,5 @@
 angular.module('jeweleryAdminApp.controllers').controller('AdminProductListController', ['$scope', '$state', 'Product', 'ProductType',
     function($scope, $state, Product, ProductType) {
-        $scope.productsByType = {};
         loadData();
 
         $scope.openProductForm = function(id) {
@@ -23,6 +22,7 @@ angular.module('jeweleryAdminApp.controllers').controller('AdminProductListContr
         };
 
         function loadData() {
+            $scope.productsByType = {};
             ProductType.query({}, function(typeData) {
                 $scope.productTypes = typeData;
                 Product.query({}, function(productsData) {

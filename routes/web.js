@@ -6,6 +6,18 @@ var mongoose = require('mongoose'),
     Product = mongoose.model('product');
 
 module.exports = function(app) {
+    Page.find({isMainPage: true}, function(err, data) {
+        if(!data || !data.length) {
+            var mainPage = new Page({
+                title: 'Главная страница',
+                name: 'Главная страница',
+                content: 'Текст главной страницы',
+                isMainPage: true
+            });
+            mainPage.save();
+        }
+    });
+
     app.get('/', function(req, res) {
         sendPageResponse(req, res);
     });
@@ -23,15 +35,14 @@ module.exports = function(app) {
 function sendPageResponse(req, res, pageUrl) {
     Page.find({}, function(err, pagesData) {
         var pageData = pagesData.find(function(page) {
-            return page.url === pageUrl;
+            return pageUrl ? page.url === pageUrl : page.isMainPage;
         }) || {},
             menusData = buildMenuData(pagesData),
             productsData = [],
             sliderImageUrls = [];
-        //: { typeId: pageData.productTypeToShowId}
         Product.find({}, function(err, data) {
             data.forEach(function(productData) {
-                if(pageData.productTypeToShowId === productData.typeId) {
+                if(pageData.productTypeToShowId === productData.typeId || (pageData.isMainPage && productData.showOnMainPage)) {
                     productsData.push(productData)
                 }
                 if(productData.showInSlider) {

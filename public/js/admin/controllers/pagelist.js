@@ -1,6 +1,5 @@
 angular.module('jeweleryAdminApp.controllers').controller('AdminPageListController', ['$scope', '$state', 'Page',
     function($scope, $state, Page) {
-        $scope.pagesByMenuTypes = {};
         loadData();
 
         $scope.openPageForm = function(id) {
@@ -15,6 +14,7 @@ angular.module('jeweleryAdminApp.controllers').controller('AdminPageListControll
         };
 
         function loadData() {
+            $scope.pagesByMenuTypes = {};
             Page.query({}, function(pagesData) {
                 pagesData.forEach(function(pageData) {
                     if(!$scope.pagesByMenuTypes[pageData.menuType]) {

@@ -169,6 +169,12 @@ a:focus {
 }
 /* /Main wrapper */
 
+/* Small image */
+.clickable-small-image {
+	cursor: pointer;
+}
+/* /Small image */
+
 /* Big image */
 .big-image-container .mask {
 	background: gray;
@@ -188,5 +194,6 @@ a:focus {
 
 .big-image-container img {
 	max-width: 90%;
+	max-height: 90%;
 }
 /* /Big image */

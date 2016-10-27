@@ -11,7 +11,8 @@ var Product = new mongoose.Schema({
     bigImageUrl: String,
     videoUrl: String,
     typeId: String,
-    showInSlider: Boolean
+    showInSlider: Boolean,
+    showOnMainPage: Boolean
 });
 
 mongoose.model('product', Product);
