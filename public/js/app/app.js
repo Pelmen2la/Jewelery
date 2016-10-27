@@ -3,6 +3,12 @@ angular.module('jeweleryApp', []);
 (function() {
     window.jeweleryModule = new function() {
         addWatermarkToImages('.clickable-small-image');
+        jQuery(document).ready(function($) {
+            $('#ImageSlider').sliderPro({
+                buttons: false,
+                arrows: true
+            });
+        });
 
         this.onSmallImageClick = function(target) {
             var bigImageUrl = target.dataset.bigimageurl;

@@ -52,10 +52,6 @@ body {
 	color: white;
 	overflow-y: scroll;
 }
-/**/
-div {
-	overflow: hidden;
-}
 
 h1 {
 	font-size: 2em;
@@ -120,6 +116,18 @@ a:focus {
 	margin: 0.2em 1%;
 }
 /* /Header */
+
+/* Slider */
+.slider-pro {
+	margin-top: 1em !important;
+	margin-bottom: 1em !important;
+}
+
+.slider-pro .sp-arrow:before,
+.slider-pro .sp-arrow:after {
+	background-color: #001528;
+}
+/* /Slider */
 
 /* Main wrapper */
 .main-wrapper {

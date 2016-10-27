@@ -15,6 +15,7 @@ html(ng-app='jeweleryApp')
       link(rel='stylesheet', href='/bower_components/textAngular/dist/textAngular.css')
       link(rel='stylesheet', href='/bower_components/components-font-awesome/css/font-awesome.min.css')
       link(rel='stylesheet', href='/css/app.css')
+      link(rel='stylesheet', href='/bower_components/slider-pro/dist/css/slider-pro.min.css')
     body
         div.page
             div.header
@@ -33,6 +34,12 @@ html(ng-app='jeweleryApp')
                 for data in menusData.topMenuData
                   li
                     a(href= data.url)= data.name
+
+            div#ImageSlider.slider-pro
+              div.sp-slides
+                for url in sliderImageUrls
+                  div.sp-slide
+                    img.sp-image(src= url)
 
             div.main-wrapper
                 div.left-menu
@@ -64,4 +71,5 @@ html(ng-app='jeweleryApp')
     script(src='/bower_components/angular-file-upload/dist/angular-file-upload.js')
     script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
     script(src='/bower_components/watermark/dist/jquery.watermark.js')
+    script(src='/bower_components/slider-pro/dist/js/jquery.sliderPro.min.js')
     script(src='/js/app/app.js')

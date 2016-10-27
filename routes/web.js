@@ -25,34 +25,31 @@ function sendPageResponse(req, res, pageUrl) {
         var pageData = pagesData.find(function(page) {
             return page.url === pageUrl;
         }) || {},
-            menusData = buildMenuData(pagesData);
-        if(pageData.productTypeToShowId && parseInt(pageData.productTypeToShowId) !== -1) {
-            Product.find(pageData.productTypeToShowId === 'all' ? {} : { typeId: pageData.productTypeToShowId}, function(err, productsData) {
-                sendPageResponseCore(req, res, pageData, menusData, productsData);
+            menusData = buildMenuData(pagesData),
+            productsData = [],
+            sliderImageUrls = [];
+        //: { typeId: pageData.productTypeToShowId}
+        Product.find({}, function(err, data) {
+            data.forEach(function(productData) {
+                if(pageData.productTypeToShowId === productData.typeId) {
+                    productsData.push(productData)
+                }
+                if(productData.showInSlider) {
+                    sliderImageUrls.push(productData.bigImageUrl);
+                }
             });
-        } else {
-            sendPageResponseCore(req, res, pageData, menusData, []);
-        }
+            sendPageResponseCore(req, res, pageData, menusData, productsData, sliderImageUrls);
+        });
     });
 };
-/*
 
-function prepareProductsData(productsData) {
-    productsData.forEach(function(product) {
-        ['big', 'small'].forEach(function(sizeName) {
-            product(sizeName + 'ImageUrl') = '/resources/images/products/' + sizeName + '/' + product[sizeName + 'imageName']
-        });
-        entry.
+function sendPageResponseCore(req, res, pageData, menusData, productsData, sliderImageUrls) {
+    res.render('index.pug', {
+        menusData: menusData,
+        sliderImageUrls: sliderImageUrls,
+        productsData: productsData,
+        pageData: pageData
     });
-},
-*/
-
-function sendPageResponseCore(req, res, pageData, menusData, productsData) {
-        res.render('index.pug', {
-            menusData: menusData,
-            productsData: productsData,
-            pageData: pageData
-        });
 };
 
 function buildMenuData(pages) {

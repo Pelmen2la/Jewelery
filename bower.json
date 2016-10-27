@@ -25,7 +25,8 @@
     "angular-sanitize": "^1.5.8",
     "textAngular": "^1.5.10",
     "components-font-awesome": "^4.6.3",
-    "watermark": "^1.0.1"
+    "watermark": "^1.0.1",
+    "slider-pro": "^1.2.2"
   },
   "resolutions": {
     "angular": "^1.5.5"
