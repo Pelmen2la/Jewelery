@@ -11,12 +11,6 @@ angular.module('jeweleryAdminApp.controllers')
             $scope.productTypes = productTypes.concat([{ name: 'Все', _id: 'all' }, { name: 'Не показывать', _id: -1 }]);
         });
 
-        $scope.menuTypes = {
-            top: 'Верхнее меню',
-            authorWorks: 'Авторские работы',
-            usefullAdditions: 'Секция "полезные дополнения"'
-        };
-
         $scope.submitPage = function() {
             if($scope.page._id) {
                 $scope.page.$update({id: $scope.page._id}, function() {

@@ -52,11 +52,30 @@ body {
 	line-height: 1.5em;
 }
 
+strong {
+	font-weight: bold;
+}
+
 .admin-main-container > button {
 	margin: 1em;
 }
 
-/* List */
+/* Auth info */
+.auth-info span {
+	display: inline-block;
+	margin-right: 1em;
+}
+/* /Auth info */
+
+/* Data block with list */
+.data-block {
+	margin-top: 1em;
+}
+
+.list {
+	margin-left: 1em;
+}
+
 .list td {
 	padding: 0.4em;
 }
@@ -64,7 +83,7 @@ body {
 .list td img {
 	cursor: pointer;
 }
-/* /List */
+/* /Data block with list */
 
 /* Edit page base */
 .edit-page > button {

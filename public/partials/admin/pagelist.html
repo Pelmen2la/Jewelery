@@ -2,16 +2,20 @@
     Добавить страницу
 </button>
 
-<table class="list">
-    <tr ng-repeat="page in pages">
-        <td ng-click="openPageForm(page._id)">
-            {{page.name || page.menuName}}
-        </td>
-        <td>
-            <img src="/resources/images/admin/icons/edit.png" ng-click="openPageForm(page._id)">
-        </td>
-        <td>
-            <img src="/resources/images/admin/icons/delete.png" ng-click="tryDeletePage(page._id)">
-        </td>
-    </tr>
-</table>
+
+<div class="data-block" ng-repeat="(typeName, pagesData) in pagesByMenuTypes">
+    <strong>{{menuTypes[typeName]}}</strong>
+    <table class="list">
+        <tr ng-repeat="page in pagesData">
+            <td ng-click="openPageForm(page._id)">
+                {{page.name || page.menuName}}
+            </td>
+            <td>
+                <img src="/resources/images/admin/icons/edit.png" ng-click="openPageForm(page._id)">
+            </td>
+            <td>
+                <img src="/resources/images/admin/icons/delete.png" ng-click="tryDeletePage(page._id)">
+            </td>
+        </tr>
+    </table>
+</div>

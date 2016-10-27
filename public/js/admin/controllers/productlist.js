@@ -1,5 +1,6 @@
-angular.module('jeweleryAdminApp.controllers').controller('AdminProductListController', ['$scope', '$state', 'Product',
-    function($scope, $state, Product) {
+angular.module('jeweleryAdminApp.controllers').controller('AdminProductListController', ['$scope', '$state', 'Product', 'ProductType',
+    function($scope, $state, Product, ProductType) {
+        $scope.productsByType = {};
         loadData();
 
         $scope.openProductForm = function(id) {
@@ -12,9 +13,26 @@ angular.module('jeweleryAdminApp.controllers').controller('AdminProductListContr
                 });
             }
         };
+        $scope.getProductTypeName = function(typeId) {
+            for(var type, i = 0; type = $scope.productTypes[i]; i++) {
+                if(type._id === typeId) {
+                    return type.name;
+                }
+            }
+            return '';
+        };
 
         function loadData() {
-            $scope.products = Product.query({}, function() {
+            ProductType.query({}, function(typeData) {
+                $scope.productTypes = typeData;
+                Product.query({}, function(productsData) {
+                    productsData.forEach(function(productData) {
+                        if(!$scope.productsByType[productData.typeId]) {
+                            $scope.productsByType[productData.typeId] = []
+                        }
+                        $scope.productsByType[productData.typeId].push(productData);
+                    });
+                });
             });
         }
     }]);

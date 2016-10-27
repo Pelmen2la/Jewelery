@@ -9,8 +9,8 @@ html(ng-app='jeweleryAdminApp')
         link(rel='stylesheet', href='/bower_components/components-font-awesome/css/font-awesome.min.css')
     body
         div.admin-main-container
-            div#auth
-                span #{user}
+            div#auth.auth-info
+                span Вы вошли как #{user}
                 a(href='/logout') Выйти
             button(class='top-menu-button' ui-sref='index') Настройка страниц
             button(class='top-menu-button' ui-sref='products') Настройка изделий

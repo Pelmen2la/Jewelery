@@ -1,5 +1,6 @@
 angular.module('jeweleryAdminApp.controllers').controller('AdminPageListController', ['$scope', '$state', 'Page',
     function($scope, $state, Page) {
+        $scope.pagesByMenuTypes = {};
         loadData();
 
         $scope.openPageForm = function(id) {
@@ -14,7 +15,13 @@ angular.module('jeweleryAdminApp.controllers').controller('AdminPageListControll
         };
 
         function loadData() {
-            $scope.pages = Page.query({}, function() {
+            Page.query({}, function(pagesData) {
+                pagesData.forEach(function(pageData) {
+                    if(!$scope.pagesByMenuTypes[pageData.menuType]) {
+                        $scope.pagesByMenuTypes[pageData.menuType] = []
+                    }
+                    $scope.pagesByMenuTypes[pageData.menuType].push(pageData);
+                });
             });
         }
     }]);
