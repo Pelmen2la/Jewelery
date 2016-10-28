@@ -174,6 +174,7 @@ a:focus {
 .main-wrapper .products-list li img {
 	height: 14.285714em; /* 200 / 14 */
 	border: 4px solid #fdeed0;
+	display: block;
 }
 /* /Main wrapper */
 

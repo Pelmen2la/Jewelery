@@ -62,6 +62,7 @@ html(ng-app='jeweleryApp')
                     for product in productsData
                       li
                         img.clickable-small-image(src=product.smallImageUrl data-bigImageUrl=product.bigImageUrl onclick="jeweleryModule.onSmallImageClick(this)")
+                        span= product.name
             div.footer
 
 
