@@ -138,6 +138,7 @@ a:focus {
 
 .main-wrapper .left-menu ul {
 	list-style: none;
+	margin: 1em 0;
 }
 
 .main-wrapper .left-menu a {

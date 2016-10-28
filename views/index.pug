@@ -45,11 +45,15 @@ html(ng-app='jeweleryApp')
                       li
                         a(href= data.url)= data.name
                   h3 Полезные дополнения
-                  for data in menusData.usefullAdditionsMenuData
-                    a(href= data.url)= data.name
+                  ul
+                    for data in menusData.usefullAdditionsMenuData
+                      li
+                       a(href= data.url)= data.name
                   h3 Компаньоны
-                  for data in menusData.companionsMenuData
-                    a(href= data.url)= data.name
+                  ul
+                    for data in menusData.companionsMenuData
+                      li
+                        a(href= data.url)= data.name
                 div.content
                   block content
                     h1= pageData.name || ''
