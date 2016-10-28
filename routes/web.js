@@ -67,7 +67,8 @@ function buildMenuData(pages) {
     var menusData = {
         topMenuData: [],
         authorWorksMenuData: [],
-        usefullAdditionsMenuData: []
+        usefullAdditionsMenuData: [],
+        companionsMenuData: []
     };
     pages.forEach(function(rec) {
         if(rec.menuType) {

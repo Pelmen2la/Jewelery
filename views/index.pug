@@ -32,6 +32,7 @@ html(ng-app='jeweleryApp')
                   | + 7 960 595 30 51
 
               ul.top-menu
+                a(href="/") Главная
                 for data in menusData.topMenuData
                   li
                     a(href= data.url)= data.name
@@ -45,6 +46,9 @@ html(ng-app='jeweleryApp')
                         a(href= data.url)= data.name
                   h3 Полезные дополнения
                   for data in menusData.usefullAdditionsMenuData
+                    a(href= data.url)= data.name
+                  h3 Компаньоны
+                  for data in menusData.companionsMenuData
                     a(href= data.url)= data.name
                 div.content
                   block content
