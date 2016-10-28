@@ -84,6 +84,18 @@ a:focus {
 	overflow: auto;
 }
 
+@media (max-width: 1000px) {
+	.header .info-container {
+		margin: 0 10%;
+	}
+}
+
+@media (max-width: 640px) {
+	.header .info-container {
+		margin: 0;
+	}
+}
+
 .header .logo {
 	float: left;
 	height: 2em;
