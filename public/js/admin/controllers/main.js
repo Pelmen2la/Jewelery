@@ -6,7 +6,6 @@ angular.module('jeweleryAdminApp.controllers')
         $scope.menuTypes = {
             top: 'Верхнее меню',
             authorWorks: 'Авторские работы',
-            usefullAdditions: 'Секция "Полезные дополнения"',
-            companions: 'Секция "Компаньоны"'
+            usefullAdditions: 'Секция "Полезные дополнения"'
         };
     }]);

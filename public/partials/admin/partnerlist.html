@@ -1,0 +1,17 @@
+<button ui-sref='newPartner'>
+    Добавить партнера
+</button>
+
+<table class="list">
+    <tr ng-repeat="partner in partners">
+        <td>
+            <a ng-href="{{partner.url}}">{{partner.name}}</a>
+        </td>
+        <td>
+            <img src="/resources/images/admin/icons/edit.png" ng-click="openPartnerForm(partner._id)">
+        </td>
+        <td>
+            <img src="/resources/images/admin/icons/delete.png" ng-click="tryDeletePartner(partner._id)">
+        </td>
+    </tr>
+</table>

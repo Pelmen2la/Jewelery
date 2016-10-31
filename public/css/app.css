@@ -40,7 +40,7 @@ textarea:focus{
 
 body {
     font-size: 16px;
-	line-height: 1.5em;
+	line-height: 1.3em;
 	background: url('/resources/images/background.jpg');
 	color: #FEFEF2;
 	overflow-y: scroll;
@@ -56,7 +56,7 @@ h2 {
 }
 
 h3 {
-	font-size: 1.5em;
+	font-size: 1.3em;
 }
 
 a,
@@ -66,9 +66,17 @@ a:focus {
 	color: #fdeed0;
 }
 
+img {
+	max-height: 100%;
+}
+
 .page {
 	margin: 1em auto;
 	width: 90%;
+}
+
+.page > div {
+	overflow: hidden;
 }
 
 /* Header */
@@ -110,10 +118,12 @@ a:focus {
 }
 
 .header .info-container .contacts {
+	text-align: right;
 	padding-top: 1em;
 }
 
 .top-menu {
+	font-size: 1.3em;
 	clear: both;
 	text-align: center;
 	margin: 0.8em;
@@ -217,3 +227,21 @@ a:focus {
 	max-height: 90%;
 }
 /* /Big image */
+
+/* Footer */
+.footer {
+	text-align: center;
+	margin: 2em auto;
+	border-top: 1px solid;
+	width: 80%;
+}
+
+.footer > * {
+	display: inline-block;
+	height: 2em;
+	font-size: 1.2em;
+	line-height: 2em;
+	vertical-align: middle;
+	margin: 1em;
+}
+/* /Footer */

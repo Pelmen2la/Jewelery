@@ -65,11 +65,6 @@ html(ng-app='jeweleryApp')
                     for data in menusData.usefullAdditionsMenuData
                       li
                        a(href= data.url)= data.name
-                  h3 Компаньоны
-                  ul
-                    for data in menusData.companionsMenuData
-                      li
-                        a(href= data.url)= data.name
                 div.content
                   block content
                     h1= pageData.name || ''
@@ -79,7 +74,16 @@ html(ng-app='jeweleryApp')
                       li
                         img.clickable-small-image(src=product.smallImageUrl data-bigImageUrl=product.bigImageUrl onclick="jeweleryModule.onSmallImageClick(this)")
                         span= product.name
+
             div.footer
+              if partnersData && partnersData.length
+                span.partners-label Партнеры
+                for partner in partnersData
+                  a(href= partner.url).partner-link
+                    if partner.imageUrl
+                      img(src= partner.imageUrl)
+                    else
+                      = partner.name
 
 
 

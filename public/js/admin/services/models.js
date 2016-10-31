@@ -20,4 +20,10 @@ angular.module('jeweleryAdminApp.services')
                 method: 'PUT'
             }
         });
+    }).factory('Partner', function($resource) {
+        return $resource('/admin/partners/:id', null, {
+            update: {
+                method: 'PUT'
+            }
+        });
     });

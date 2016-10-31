@@ -1,0 +1,22 @@
+<div ng-controller="PartnerFormController" class="edit-page">
+    <a ui-sref='partners'> < Вернуться к списку партнеров</a>
+
+    <div class="left-half-size-container upload-image-block">
+        <img class="main-image" ng-src="{{partner.imageUrl}}">
+        <input class="upload-input" type="file" nv-file-select="" uploader="partnerImageUploader"/>
+    </div>
+
+    <div class="settings-block">
+        <span class="control-label">Имя партнера</span>
+        <input class="control" ng-model="partner.name">
+    </div>
+
+    <div class="settings-block">
+        <span class="control-label">Ссылка на сайт партнера</span>
+        <input class="control" ng-model="partner.url">
+    </div>
+
+    <button ng-click="submitPartner()">
+        Сохранить
+    </button>
+</div>

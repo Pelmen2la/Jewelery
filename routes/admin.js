@@ -13,6 +13,7 @@ module.exports = function(app) {
     require("./data-helpers/products")(app);
     require("./data-helpers/pages")(app);
     require("./data-helpers/producttypes")(app);
+    require("./data-helpers/partners")(app);
 
     app.all('/admin', authMw);
     app.all('/admin/*', authMw);
@@ -48,6 +49,10 @@ module.exports = function(app) {
 
     app.post('/admin/upload/product/image/:size', multerInstance.single('file'), function(req, res) {
         tryUploadFile('public/resources/images/products/' + req.params.size +'/', req, res);
+    });
+
+    app.post('/admin/upload/partner/image/', multerInstance.single('file'), function(req, res) {
+        tryUploadFile('public/resources/images/partners/', req, res);
     });
 
     function tryUploadFile(targetPath, req, res) {

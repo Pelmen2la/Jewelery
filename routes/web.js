@@ -3,7 +3,8 @@
 var mongoose = require('mongoose'),
     path = require('path'),
     Page = mongoose.model('page'),
-    Product = mongoose.model('product');
+    Product = mongoose.model('product'),
+    Partner = mongoose.model('partner');
 
 module.exports = function(app) {
     Page.find({isMainPage: true}, function(err, data) {
@@ -55,11 +56,14 @@ function sendPageResponse(req, res, pageUrl) {
 };
 
 function sendPageResponseCore(req, res, pageData, menusData, productsData, sliderImageUrls) {
-    res.render('index.pug', {
-        menusData: menusData,
-        sliderImageUrls: sliderImageUrls,
-        productsData: productsData,
-        pageData: pageData
+    Partner.find({}, function(err, partnersData) {
+        res.render('index.pug', {
+            menusData: menusData,
+            sliderImageUrls: sliderImageUrls,
+            productsData: productsData,
+            pageData: pageData,
+            partnersData: partnersData
+        });
     });
 };
 
@@ -67,8 +71,7 @@ function buildMenuData(pages) {
     var menusData = {
         topMenuData: [],
         authorWorksMenuData: [],
-        usefullAdditionsMenuData: [],
-        companionsMenuData: []
+        usefullAdditionsMenuData: []
     };
     pages.forEach(function(rec) {
         if(rec.menuType) {
