@@ -75,18 +75,17 @@ a:focus {
 .header {
 	overflow: hidden;
 	font-family: Georgia;
-	font-size: 1.5em;
 }
 
 .header .info-container {
 	padding-bottom: 1px;
-	margin: 0 25%;
+	margin: 0 10%;
 	overflow: auto;
 }
 
 @media (max-width: 1000px) {
 	.header .info-container {
-		margin: 0 10%;
+		margin: 5%;
 	}
 }
 
@@ -96,19 +95,22 @@ a:focus {
 	}
 }
 
-.header .logo {
-	float: left;
-	height: 2em;
-	margin-right: 1%;
-}
-
-.header .logo-text {
-	line-height: 1em;
+.header .info-container > * {
+	display: inline-block;
 	float: left;
 }
 
-.header .contacts {
-	float: right;
+.header .info-container p {
+	width: 30%;
+}
+
+.header .info-container .logo-container {
+	width: 40%;
+	text-align: center;
+}
+
+.header .info-container .contacts {
+	padding-top: 1em;
 }
 
 .top-menu {
@@ -143,7 +145,7 @@ a:focus {
 }
 
 .main-wrapper .left-menu {
-    width: 30%;
+    width: 25%;
 	line-height: 2em;
     float: left;
 }
@@ -159,7 +161,16 @@ a:focus {
 
 .main-wrapper .content {
     float: right;
-    width: 70%;
+    width: 75%;
+}
+
+@media (max-width: 1200px) {
+	.main-wrapper .left-menu {
+		width: 30%;
+	}
+	.main-wrapper .content {
+		width: 70%
+	}
 }
 
 .main-wrapper .products-list {
