@@ -41,7 +41,8 @@ textarea:focus{
 body {
     font-size: 16px;
 	line-height: 1.3em;
-	background: url('/resources/images/background.jpg');
+	background: url('/resources/images/background.jpg') 50% 0 no-repeat;
+	background-color: #001425;
 	color: #FEFEF2;
 	overflow-y: scroll;
 }
@@ -71,7 +72,7 @@ img {
 }
 
 .page {
-	margin: 1em auto;
+	margin: 0 auto;
 	width: 90%;
 }
 
@@ -83,6 +84,7 @@ img {
 .header {
 	overflow: hidden;
 	font-family: Georgia;
+	padding: 1em 0;
 }
 
 .header .info-container {
