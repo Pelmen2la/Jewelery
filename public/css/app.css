@@ -41,7 +41,8 @@ textarea:focus{
 body {
     font-size: 16px;
 	line-height: 1.3em;
-	background: url('/resources/images/background.jpg') 50% 0 no-repeat;
+	background: url('/resources/images/background.jpg') no-repeat;
+	background-size: 100%;
 	background-color: #001425;
 	color: #FEFEF2;
 	overflow-y: scroll;
