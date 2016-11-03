@@ -4,14 +4,16 @@
         jQuery(document).ready(function($) {
             $('#ImageSlider').length && $('#ImageSlider').sliderPro({
                 buttons: false,
-                arrows: true
+                arrows: true,
+                width: 1200,
+                height: 300
             });
         });
 
         this.onSmallImageClick = function(target) {
             var bigImageUrl = target.dataset.bigimageurl;
             if(bigImageUrl) {
-                document.body.innerHTML += '<div class="big-image-container visible" id="BigImageContainer">' +
+                $('#BigImageContainer')[0].innerHTML += '<div class="big-image-container visible" id="BigImageWrapper">' +
                     '<div class="mask" onclick="jeweleryModule.onBigImageMaskClick()"></div>' +
                     '<img class="big-image" src="' + bigImageUrl + '"></div>';
                 addWatermarkToImages('.big-image');
@@ -20,7 +22,7 @@
 
 
         this.onBigImageMaskClick = function() {
-            getBigImageContainer().parentNode.removeChild(getBigImageContainer());
+            getBigImageWrapper().parentNode.removeChild(getBigImageWrapper());
         };
 
         function addWatermarkToImages(selector) {
@@ -28,8 +30,8 @@
                 text: 'Гринин'
             });
         };
-        function getBigImageContainer() {
-            return document.getElementById('BigImageContainer');
+        function getBigImageWrapper() {
+            return document.getElementById('BigImageWrapper');
         };
     }
 })();

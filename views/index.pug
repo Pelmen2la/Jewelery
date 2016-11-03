@@ -18,72 +18,81 @@ html(ng-app='jeweleryApp')
       link(rel='stylesheet', href='/bower_components/slider-pro/dist/css/slider-pro.min.css')
     body
         div.page
-            div.header
-              div.info-container
-                p.certificate
-                  | Свидетельство о постановке
-                  br
-                  | на спецучет в российской
-                  br
-                  | государственной
-                  br
-                  | пробирной палате
-                  br
-                  | 0140008755 от 01.04.2015 г.
-                div.logo-container
-                  a(href="/")
-                    img(src="/resources/images/logo.png").logo
-                  br
-                  | эксклюзивный-ювелир
-                  br
-                  | ДМИТРИЙ ГРИНИН
-                  br
-                  span Уникальные авторские ювелирные украшения
+          div.header
+            div.info-container
+              p.certificate
+                | Свидетельство о постановке
+                br
+                | на спецучет в российской
+                br
+                | государственной
+                br
+                | пробирной палате
+                br
+                | 0140008755 от 01.04.2015 г.
+              div.logo-container
+                a(href="/")
+                  img(src="/resources/images/logo.png").logo
+                br
+                | эксклюзивный-ювелир
+                br
+                | ДМИТРИЙ ГРИНИН
+                br
+                span Уникальные авторские ювелирные украшения
+              p.contacts
+                |Москва
+                br
+                | + 7 960 595 30 51
+                br
+                | example@mail.ru
+            ul.top-menu
+              a(href="/") Главная
+              for data in menusData.topMenuData
+                li
+                  a(href= data.url)= data.name
 
-                p.contacts
-                  |Москва
-                  br
-                  | + 7 960 595 30 51
-                  br
-                  | example@mail.ru
+          div#ImageSlider.slider-pro
+            div.sp-slides
+              div.sp-slide
+                img.sp-image(src='resources/images/slider/big1.jpg')
+              div.sp-slide
+                img.sp-image(src='resources/images/slider/big2.jpg')
+              div.sp-slide
+                img.sp-image(src='resources/images/slider/big3.jpg')
 
-              ul.top-menu
-                a(href="/") Главная
-                for data in menusData.topMenuData
-                  li
-                    a(href= data.url)= data.name
+          div.main-wrapper
+              div.left-menu
+                h3 Работы автора
+                ul
+                  for data in menusData.authorWorksMenuData
+                    li
+                      a(href= data.url)= data.name
+                h3 Полезные дополнения
+                ul
+                  for data in menusData.usefullAdditionsMenuData
+                    li
+                     a(href= data.url)= data.name
+              div.content
+                block content
+                  h1= pageData.name || ''
+                  != pageData.content || ''
+                ul.products-list
+                  for product in productsData
+                    li
+                      img.clickable-small-image(src=product.smallImageUrl data-bigImageUrl=product.bigImageUrl onclick="jeweleryModule.onSmallImageClick(this)")
+                      span= product.name
 
-            div.main-wrapper
-                div.left-menu
-                  h3 Работы автора
-                  ul
-                    for data in menusData.authorWorksMenuData
-                      li
-                        a(href= data.url)= data.name
-                  h3 Полезные дополнения
-                  ul
-                    for data in menusData.usefullAdditionsMenuData
-                      li
-                       a(href= data.url)= data.name
-                div.content
-                  block content
-                    h1= pageData.name || ''
-                    != pageData.content || ''
-                  ul.products-list
-                    for product in productsData
-                      li
-                        img.clickable-small-image(src=product.smallImageUrl data-bigImageUrl=product.bigImageUrl onclick="jeweleryModule.onSmallImageClick(this)")
-                        span= product.name
+          div.footer
+            if partnersData && partnersData.length
+              span.partners-label Партнеры
+              for partner in partnersData
+                a(href= partner.url).partner-link
+                  if partner.imageUrl
+                    img(src= partner.imageUrl)
+                  else
+                    = partner.name
 
-            div.footer
-              if partnersData && partnersData.length
-                span.partners-label Партнеры
-                for partner in partnersData
-                  a(href= partner.url).partner-link
-                    if partner.imageUrl
-                      img(src= partner.imageUrl)
-                    else
-                      = partner.name
+          div#BigImageContainer
 
 
 
