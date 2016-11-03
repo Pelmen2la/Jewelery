@@ -1,5 +1,3 @@
-angular.module('jeweleryApp', []);
-
 (function() {
     window.jeweleryModule = new function() {
         addWatermarkToImages('.clickable-small-image');
