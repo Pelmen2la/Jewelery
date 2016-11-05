@@ -39,26 +39,51 @@ textarea:focus{
 /* /Reset CSS */
 
 body {
-    font-size: 16px;
-	line-height: 1.3em;
+    font-size: 20px;
+	line-height: 1.6em;
 	background: url('/resources/images/background.jpg') no-repeat;
 	background-size: 100%;
 	background-color: #001425;
-	color: #FEFEF2;
+	color: #EE9B0F;
 	overflow-y: scroll;
 }
 
+p {
+	font-size: 20px !important;
+}
+
+@media (max-width: 900px) {
+	body,
+	.p {
+		font-size: 18px !important;
+	}
+}
+
+@media (max-width: 800px) {
+	body,
+	.p {
+		font-size: 16px !important;
+	}
+}
+
+@media (max-width: 650px) {
+	body,
+	.p {
+		font-size: 14px !important;
+	}
+}
+
 h1 {
-	font-size: 2em;
+	font-size: 1.5em;
 	margin: 0 0 0.5em;
 }
 
 h2 {
-	font-size: 1.7em;
+	font-size: 1.3em;
 }
 
 h3 {
-	font-size: 1.3em;
+	font-size: 1.2em;
 }
 
 a,
@@ -158,7 +183,7 @@ img {
 }
 
 .main-wrapper .left-menu {
-    width: 25%;
+    width: 30%;
 	line-height: 2em;
     float: left;
 }
@@ -174,15 +199,15 @@ img {
 
 .main-wrapper .content {
     float: right;
-    width: 75%;
+    width: 70%;
 }
 
 @media (max-width: 1200px) {
 	.main-wrapper .left-menu {
-		width: 30%;
+		width: 35%;
 	}
 	.main-wrapper .content {
-		width: 70%
+		width: 65%;
 	}
 }
 
@@ -228,6 +253,7 @@ img {
 .big-image-container img {
 	max-width: 90%;
 	max-height: 90%;
+	border: 5px solid white;
 }
 /* /Big image */
 
