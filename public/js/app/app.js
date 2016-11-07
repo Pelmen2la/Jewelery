@@ -13,25 +13,37 @@
         this.onSmallImageClick = function(target) {
             var bigImageUrl = target.dataset.bigimageurl;
             if(bigImageUrl) {
-                $('#BigImageContainer')[0].innerHTML += '<div class="big-image-container visible" id="BigImageWrapper">' +
-                    '<div class="mask" onclick="jeweleryModule.onBigImageMaskClick()"></div>' +
-                    '<img class="big-image" src="' + bigImageUrl + '"></div>';
+                showFullscreenItem('<img class="big-image" src="' + bigImageUrl + '"></div>');
                 addWatermarkToImages('.big-image');
             }
         };
-
-
-        this.onBigImageMaskClick = function() {
-            getBigImageWrapper().parentNode.removeChild(getBigImageWrapper());
+        this.onVideoIconClick = function(videoUrl) {
+            var videoId = videoUrl.split('?v=')[1];
+            showFullscreenItem('<iframe src="https://www.youtube.com/embed/' + videoId + '"></iframe>');
         };
+        this.onFullscreenItemMaskClick = function() {
+            hideFullscreenItem();
+        };
+
+
 
         function addWatermarkToImages(selector) {
             $(selector).watermark({
                 text: 'Гринин'
             });
         };
-        function getBigImageWrapper() {
-            return document.getElementById('BigImageWrapper');
+        function getFullscreenItemWrapper() {
+            return document.getElementById('FullscreenItemWrapper');
+        };
+        function showFullscreenItem(itemHtml) {
+            var wrapper = getFullscreenItemWrapper();
+            wrapper.innerHTML = '<div class="mask" onclick="jeweleryModule.onFullscreenItemMaskClick()"></div>' + itemHtml;
+            $(wrapper).addClass('visible');
+        };
+        function hideFullscreenItem() {
+            var wrapper = getFullscreenItemWrapper();
+            wrapper.innerHTML = '';
+            $(wrapper).removeClass('visible');
         };
     }
 })();

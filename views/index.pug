@@ -79,8 +79,12 @@ html(ng-app='jeweleryApp')
                 ul.products-list
                   for product in productsData
                     li
-                      img.clickable-small-image(src=product.smallImageUrl data-bigImageUrl=product.bigImageUrl onclick="jeweleryModule.onSmallImageClick(this)")
+                      div.small-image-wrapper
+                        img.clickable-small-image(src=product.smallImageUrl data-bigImageUrl=product.bigImageUrl onclick="jeweleryModule.onSmallImageClick(this)")
+                        if product.videoUrl
+                          img.camera-icon(src='resources/images/icons/video_icon.png' onclick="jeweleryModule.onVideoIconClick('" + product.videoUrl + "')")
                       span= product.name
+
 
           div.footer
             if partnersData && partnersData.length
@@ -92,7 +96,8 @@ html(ng-app='jeweleryApp')
                   else
                     = partner.name
 
-          div#BigImageContainer
+          div#FullscreenItemContainer
+            div.fullscreen-item-wrapper(id="FullscreenItemWrapper")
 
 
 
