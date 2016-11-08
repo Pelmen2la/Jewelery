@@ -53,12 +53,11 @@ html(ng-app='jeweleryApp')
 
           div#ImageSlider.slider-pro
             div.sp-slides
-              div.sp-slide
-                img.sp-image(src='resources/images/slider/big1.jpg')
-              div.sp-slide
-                img.sp-image(src='resources/images/slider/big2.jpg')
-              div.sp-slide
-                img.sp-image(src='resources/images/slider/big3.jpg')
+              for imageSliderItem in imageSliderData
+                div.sp-slide
+                  img.sp-image(src= imageSliderItem.imageUrl)
+                  if imageSliderItem.text
+                    div.slider-item-text= imageSliderItem.text
 
           div.main-wrapper
               div.left-menu
@@ -80,7 +79,7 @@ html(ng-app='jeweleryApp')
                   for product in productsData
                     li
                       div.small-image-wrapper
-                        img.clickable-small-image(src=product.smallImageUrl data-bigImageUrl=product.bigImageUrl onclick="jeweleryModule.onSmallImageClick(this)")
+                        img.clickable-small-image(src=product.smallImageUrl data-bigImageUrl=product.bigImageUrl data-description=product.description onclick="jeweleryModule.onSmallImageClick(this)")
                         if product.videoUrl
                           img.camera-icon(src='resources/images/icons/video_icon.png' onclick="jeweleryModule.onVideoIconClick('" + product.videoUrl + "')")
                       span= product.name

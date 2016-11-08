@@ -26,4 +26,10 @@ angular.module('jeweleryAdminApp.services')
                 method: 'PUT'
             }
         });
+    }).factory('ImageSliderItem', function($resource) {
+        return $resource('/admin/imageslideritems/:id', null, {
+            update: {
+                method: 'PUT'
+            }
+        });
     });

@@ -34,6 +34,11 @@
         <input type="checkbox" class="control" ng-model="product.showOnMainPage">
     </div>
 
+    <div class="settings-block">
+        <span class="control-label">Описание изделия</span>
+        <textarea rows="5" class="control" ng-model="product.description"></textarea>
+    </div>
+
     <button ng-click="submitProduct()">
         Сохранить
     </button>

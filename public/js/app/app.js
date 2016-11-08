@@ -11,9 +11,16 @@
         });
 
         this.onSmallImageClick = function(target) {
-            var bigImageUrl = target.dataset.bigimageurl;
+            var bigImageUrl = target.dataset.bigimageurl,
+                description = (target.dataset.description || '').replace(/\n/g, '<br>');
+                html = '<div class="product-info-wrapper ' + (description ? 'with-description' : '') + '" ' +
+                    'onclick="jeweleryModule.hideFullscreenItem()">' +
+                    '<img src="' + bigImageUrl + '">' +
+                    (description ? '<p>' + description + '</p>' : '') +
+                    '</div>',
+                imageHtml = '<span><img class="big-image" src="' + bigImageUrl + '"></span>';
             if(bigImageUrl) {
-                showFullscreenItem('<img class="big-image" src="' + bigImageUrl + '"></div>');
+                showFullscreenItem(html);
                 addWatermarkToImages('.big-image');
             }
         };
@@ -21,8 +28,10 @@
             var videoId = videoUrl.split('?v=')[1];
             showFullscreenItem('<iframe src="https://www.youtube.com/embed/' + videoId + '"></iframe>');
         };
-        this.onFullscreenItemMaskClick = function() {
-            hideFullscreenItem();
+        this.hideFullscreenItem = function() {
+            var wrapper = getFullscreenItemWrapper();
+            wrapper.innerHTML = '';
+            $(wrapper).removeClass('visible');
         };
 
 
@@ -37,13 +46,8 @@
         };
         function showFullscreenItem(itemHtml) {
             var wrapper = getFullscreenItemWrapper();
-            wrapper.innerHTML = '<div class="mask" onclick="jeweleryModule.onFullscreenItemMaskClick()"></div>' + itemHtml;
+            wrapper.innerHTML = '<div class="mask" onclick="jeweleryModule.hideFullscreenItem()"></div>' + itemHtml;
             $(wrapper).addClass('visible');
-        };
-        function hideFullscreenItem() {
-            var wrapper = getFullscreenItemWrapper();
-            wrapper.innerHTML = '';
-            $(wrapper).removeClass('visible');
         };
     }
 })();

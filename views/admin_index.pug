@@ -16,6 +16,7 @@ html(ng-app='jeweleryAdminApp')
             button(class='top-menu-button' ui-sref='products') Настройка изделий
             button(class='top-menu-button' ui-sref='producttypes') Настройка типов изделий
             button(class='top-menu-button' ui-sref='partners') Настройка партнеров
+            button(class='top-menu-button' ui-sref='imageSliderItems') Настройка слайдера
 
             div(ui-view, ng-controller='MainController')
 
@@ -38,5 +39,7 @@ html(ng-app='jeweleryAdminApp')
         script(src='/js/admin/controllers/producttypelist.js')
         script(src='/js/admin/controllers/partnerlist.js')
         script(src='/js/admin/controllers/partnerform.js')
+        script(src='/js/admin/controllers/imageslideritemlist.js')
+        script(src='/js/admin/controllers/imageslideritemform.js')
         script(src='/js/admin/services/models.js')
         script(src='/js/admin/services/utils.js')

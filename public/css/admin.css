@@ -73,6 +73,7 @@ strong {
 
 .list td img {
 	cursor: pointer;
+	vertical-align: middle;
 }
 /* /Data block with list */
 
@@ -127,5 +128,11 @@ strong {
 
 .upload-image-block > img {
 	height: 256px;
+}
+
+.image-slider-img {
+	width: 90%;
+	max-width: 1200px;
+	max-height: 300px;
 }
 /* /Edit page base */

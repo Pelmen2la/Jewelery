@@ -36,6 +36,18 @@ angular.module('jeweleryAdminApp').config(function ($stateProvider) {
         url: '/partners/new',
         templateUrl: '/partials/admin/partnerform.html',
         controller: 'PartnerCreateController'
+    }).state('imageSliderItems', {
+        url: '/imageslideritems',
+        templateUrl: '/partials/admin/imageslideritemlist.html',
+        controller: 'AdminImageSliderItemListController'
+    }).state('imageSliderItemForm', {
+        url: '/imageslideritems/edit/:id/',
+        templateUrl: '/partials/admin/imageslideritemform.html',
+        controller: 'ImageSliderItemEditController'
+    }).state('newImageSliderItem', {
+        url: '/imageslideritems/new',
+        templateUrl: '/partials/admin/imageslideritemform.html',
+        controller: 'ImageSliderItemCreateController'
     }).state('producttypes', {
         url: '/producttypes',
         templateUrl: '/partials/admin/producttypelist.html',

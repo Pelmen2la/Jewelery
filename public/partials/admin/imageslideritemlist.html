@@ -1,0 +1,17 @@
+<button ui-sref='newImageSliderItem'>
+    Добавить слайд
+</button>
+
+<table class="list">
+    <tr ng-repeat="imageSliderItem in imageSliderItems">
+        <td>
+            <img class="image-slider-img" src="{{imageSliderItem.imageUrl}}" ng-click="openImageSliderItemForm(imageSliderItem._id)">
+        </td>
+        <td>
+            <img src="/resources/images/admin/icons/edit.png" ng-click="openImageSliderItemForm(imageSliderItem._id)">
+        </td>
+        <td>
+            <img src="/resources/images/admin/icons/delete.png" ng-click="tryDeleteImageSliderItem(imageSliderItem._id)">
+        </td>
+    </tr>
+</table>

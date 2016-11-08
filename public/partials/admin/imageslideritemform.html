@@ -1,0 +1,17 @@
+<div ng-controller="ImageSliderItemFormController" class="edit-page">
+    <a ui-sref='imageSliderItems'> < Вернуться к списку слайдов</a>
+
+    <div class="left-half-size-container upload-image-block">
+        <img class="image-slider-img" ng-src="{{imageSliderItem.imageUrl}}">
+        <input class="upload-input" type="file" nv-file-select="" uploader="imageSliderItemImageUploader"/>
+    </div>
+
+    <div class="settings-block">
+        <span class="control-label">Текст</span>
+        <input class="control" ng-model="imageSliderItem.text">
+    </div>
+
+    <button ng-click="submitImageSliderItem()">
+        Сохранить
+    </button>
+</div>

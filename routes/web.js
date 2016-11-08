@@ -4,7 +4,8 @@ var mongoose = require('mongoose'),
     path = require('path'),
     Page = mongoose.model('page'),
     Product = mongoose.model('product'),
-    Partner = mongoose.model('partner');
+    Partner = mongoose.model('partner'),
+    ImageSliderItem = mongoose.model('imageSliderItem');
 
 module.exports = function(app) {
     Page.find({isMainPage: true}, function(err, data) {
@@ -46,23 +47,22 @@ function sendPageResponse(req, res, pageUrl) {
                 if(pageData.productTypeToShowId === productData.typeId || (pageData.isMainPage && productData.showOnMainPage)) {
                     productsData.push(productData)
                 }
-                if(productData.showInSlider) {
-                    sliderImageUrls.push(productData.bigImageUrl);
-                }
             });
-            sendPageResponseCore(req, res, pageData, menusData, productsData, sliderImageUrls);
+            ImageSliderItem.find({}, function(err, imageSliderData) {
+                sendPageResponseCore(req, res, pageData, menusData, productsData, imageSliderData);
+            });
         });
     });
 };
 
-function sendPageResponseCore(req, res, pageData, menusData, productsData, sliderImageUrls) {
+function sendPageResponseCore(req, res, pageData, menusData, productsData, imageSliderData) {
     Partner.find({}, function(err, partnersData) {
         res.render('index.pug', {
-            menusData: menusData,
-            sliderImageUrls: sliderImageUrls,
-            productsData: productsData,
-            pageData: pageData,
-            partnersData: partnersData
+            menusData: menusData || [],
+            imageSliderData: imageSliderData || [],
+            productsData: productsData || [],
+            pageData: pageData || [],
+            partnersData: partnersData || []
         });
     });
 };
