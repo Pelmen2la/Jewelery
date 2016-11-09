@@ -141,6 +141,11 @@ img {
 	text-align: center;
 }
 
+.header .info-container .logo {
+	height: 7.5em;
+	opacity: 0.9;
+}
+
 .header .info-container .contacts {
 	text-align: right;
 	padding-top: 1em;
