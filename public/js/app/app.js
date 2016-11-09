@@ -1,6 +1,6 @@
 (function() {
     window.jeweleryModule = new function() {
-        addWatermarkToImages('.clickable-small-image');
+        addWatermarkToImages('.clickable-small-image', 'smallwatermark');
         jQuery(document).ready(function($) {
             $('#ImageSlider').length && $('#ImageSlider').sliderPro({
                 buttons: false,
@@ -21,7 +21,7 @@
                 imageHtml = '<span><img class="big-image" src="' + bigImageUrl + '"></span>';
             if(bigImageUrl) {
                 showFullscreenItem(html);
-                addWatermarkToImages('.big-image');
+                addWatermarkToImages('.product-info-wrapper img', 'logo');
             }
         };
         this.onVideoIconClick = function(videoUrl) {
@@ -36,9 +36,10 @@
 
 
 
-        function addWatermarkToImages(selector) {
+        function addWatermarkToImages(selector, watermarkImageName) {
             $(selector).watermark({
-                text: 'Гринин'
+                path: '/resources/images/' + watermarkImageName + '.png',
+                opacity: 0.5
             });
         };
         function getFullscreenItemWrapper() {
