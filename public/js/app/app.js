@@ -37,10 +37,22 @@
 
 
         function addWatermarkToImages(selector, watermarkImageName) {
+            debugger;
             $(selector).watermark({
-                path: '/resources/images/' + watermarkImageName + '.png',
+                path: getWatermarkUrl(selector),
                 opacity: 0.5
             });
+        };
+        function getWatermarkUrl(imageSelector) {
+            var width = $(imageSelector).width() / 4,
+                height = $(imageSelector).height() / 4,
+                canvas = document.getElementById('Canvas'),
+                ctx = canvas.getContext('2d');
+
+            canvas.width = width;
+            canvas.height = height;
+            ctx.drawImage($('img.logo')[0], 0, 0, width, height);
+            return canvas.toDataURL();
         };
         function getFullscreenItemWrapper() {
             return document.getElementById('FullscreenItemWrapper');
