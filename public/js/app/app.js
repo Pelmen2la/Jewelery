@@ -1,6 +1,6 @@
 (function() {
     window.jeweleryModule = new function() {
-        addWatermarkToImages('.clickable-small-image', 'smallwatermark');
+        addWatermarkToImages('.clickable-small-image', 'small');
         jQuery(document).ready(function($) {
             $('#ImageSlider').length && $('#ImageSlider').sliderPro({
                 buttons: false,
@@ -21,7 +21,7 @@
                 imageHtml = '<span><img class="big-image" src="' + bigImageUrl + '"></span>';
             if(bigImageUrl) {
                 showFullscreenItem(html);
-                addWatermarkToImages('.product-info-wrapper img', 'logo');
+                addWatermarkToImages('.product-info-wrapper img', 'big');
             }
         };
         this.onVideoIconClick = function(videoUrl) {
@@ -36,23 +36,11 @@
 
 
 
-        function addWatermarkToImages(selector, watermarkImageName) {
-            debugger;
+        function addWatermarkToImages(selector, watermarkSize) {
             $(selector).watermark({
-                path: getWatermarkUrl(selector),
+                path: '/resources/images/' + watermarkSize + 'watermark.png',
                 opacity: 0.5
             });
-        };
-        function getWatermarkUrl(imageSelector) {
-            var width = $(imageSelector).width() / 4,
-                height = $(imageSelector).height() / 4,
-                canvas = document.getElementById('Canvas'),
-                ctx = canvas.getContext('2d');
-
-            canvas.width = width;
-            canvas.height = height;
-            ctx.drawImage($('img.logo')[0], 0, 0, width, height);
-            return canvas.toDataURL();
         };
         function getFullscreenItemWrapper() {
             return document.getElementById('FullscreenItemWrapper');
