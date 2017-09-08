@@ -7,6 +7,7 @@ var app = express();
 
 global.appRoot = path.resolve(__dirname);
 
+require('./models/user');
 require('./config/index')(app);
 require('./routes/index')(app);
 
