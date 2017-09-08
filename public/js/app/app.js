@@ -6,7 +6,8 @@
                 buttons: false,
                 arrows: true,
                 width: 1200,
-                height: 300
+                height: 300,
+                imageScaleMode: 'contain'
             });
         });
 
