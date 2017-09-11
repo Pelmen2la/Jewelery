@@ -26,7 +26,7 @@ module.exports = function(app) {
 
     app.get('/:url', function(req, res, next) {
         var url = req.params.url;
-        if(url.indexOf('admin') === 0 || url == 'login') {
+        if(url.indexOf('admin') === 0 || url == 'login' || url == 'logout') {
             next();
         } else {
             sendPageResponse(req, res, url);
