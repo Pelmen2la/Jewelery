@@ -2,6 +2,7 @@
 
 var passport = require('passport'),
     mongoose = require('mongoose'),
+    fs = require('fs'),
     LocalStrategy = require('passport-local').Strategy;
 
 var User = mongoose.model('user');
@@ -28,17 +29,18 @@ module.exports = function (app) {
 
     passport.deserializeUser(function (id, done) {
         User.findById(id, function (err, user) {
-            err
-                ? done(err)
-                : done(null, user);
+            err ? done(err) : done(null, user);
         });
     });
 
     User.count(function (err, count) {
-        if (!count) {
-            User.create({
-                username: 'root',
-                password: '1234'
+        if(!count) {
+            fs.readFile('./config/server.json', 'utf8', function(err, data) {
+                data = JSON.parse(data);
+                User.create({
+                    username: data.auth.login,
+                    password: data.auth.password
+                });
             });
         }
     });

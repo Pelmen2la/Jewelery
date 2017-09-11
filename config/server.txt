@@ -1,0 +1,6 @@
+{
+    "auth": { 
+        "login": "root",
+        "password": "1234"
+    }
+}

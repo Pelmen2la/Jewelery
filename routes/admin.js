@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
     authMw = require('../middlewares/auth'),
     multer = require('multer'),
     Product = mongoose.model('product'),
+    User = mongoose.model('user'),
     multerInstance = multer({ dest: 'upload/' }),
     fs = require('fs');
 
@@ -46,6 +47,13 @@ module.exports = function(app) {
     app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/login');
+    });
+
+    app.get('/admin/remove_user_info', function(req, res) {
+        User.find({}, function(err, data) {
+            data.forEach(function(u) { u.remove(); });
+            res.send('done');
+        });
     });
 
     app.post('/admin/upload/product/image/:size', multerInstance.single('file'), function(req, res) {
