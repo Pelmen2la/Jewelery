@@ -14,3 +14,7 @@ require('./routes/index')(app);
 var server = app.listen(process.env.PORT || 3002, 'localhost', function () {
     console.log('App listening on port ' + server.address().port);
 });
+
+process.on('uncaughtException', function(err) {
+    console.error(err);
+});
