@@ -75,6 +75,10 @@ strong {
 	cursor: pointer;
 	vertical-align: middle;
 }
+
+.list td .main-img {
+	height: 100px;
+}
 /* /Data block with list */
 
 /* Edit page base */

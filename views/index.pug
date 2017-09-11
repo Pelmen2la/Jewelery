@@ -66,11 +66,12 @@ html(ng-app='jeweleryApp')
                   for data in menusData.authorWorksMenuData
                     li
                       a(href= data.url)= data.name
-                h3 Полезные дополнения
-                ul
-                  for data in menusData.usefullAdditionsMenuData
-                    li
-                     a(href= data.url)= data.name
+                if menusData.usefullAdditionsMenuData.length
+                  h3 Полезные дополнения
+                  ul
+                    for data in menusData.usefullAdditionsMenuData
+                      li
+                        a(href= data.url)= data.name
               div.content
                 block content
                   h1= pageData.name || ''

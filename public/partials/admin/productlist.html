@@ -7,6 +7,9 @@
     <table class="list">
         <tr ng-repeat="product in productsData">
             <td ng-click="openProductForm(product._id)">
+                <img class="main-img" ng-src="{{product.smallImageUrl}}">
+            </td>
+            <td ng-click="openProductForm(product._id)">
                 {{product.name}}
             </td>
             <td>
